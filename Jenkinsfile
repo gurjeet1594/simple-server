@@ -11,13 +11,13 @@ pipeline {
                     steps {
                 echo "Build"
                 sh 'mvn package -DskipTests'
-                sh 'docker build -t="moam97/simple-project-server:latest" .'
+                sh 'docker build -t="gurjeet151994/simple-project:latest" .'
                         }
                 }
                 stage('Deploy') {
                     steps {
                 echo "Deploy"
-                sh 'docker push moam97/simple-project-server:latest'
+                sh 'docker push gurjeet151994/simple-project:latest'
                     }
                 }
                 stage('Testing Environment') {
@@ -33,7 +33,7 @@ pipeline {
                 stage('Production') {
                         when{
                             expression{
-                                env.featurebranch3=="master"
+                                env.BRANCH_NAME=="master"
                             }
                         }
                         steps {
