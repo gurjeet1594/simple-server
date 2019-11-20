@@ -6,6 +6,7 @@ pipeline {
                             sh 'mvn test -Dtest=ControllerAndServiceSuite'
                     sh 'mvn test -Dtest=IntegrationSuite'
                         }
+
                 }
                 stage('Build') {
                     steps {
@@ -20,6 +21,9 @@ pipeline {
                 sh 'docker push gurjeet151994/simple-project:latest'
                     }
                 }
+
+                }
+          
                 stage('Testing Environment') {
                     steps {
                         echo "hello"
@@ -42,5 +46,4 @@ pipeline {
                 }
     }
 }
-
 
