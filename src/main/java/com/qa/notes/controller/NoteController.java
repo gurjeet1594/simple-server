@@ -28,17 +28,17 @@ import com.qa.notes.service.NoteService;
 @CrossOrigin("*")
 public class NoteController {
 	
-	//@Autowired
-	//private NoteService service;
+	@Autowired
+	private NoteService service;
 
-	//@RequestMapping(path = "note/", method = {RequestMethod.GET})
-	//@ResponseStatus(code = HttpStatus.OK)
-	//public List<NoteDto> getNotes(){
-	//	return new ArrayList<NoteDto>(service.getNotes());
+	@RequestMapping(path = "note/", method = {RequestMethod.GET})
+	@ResponseStatus(code = HttpStatus.OK)
+	public List<NoteDto> getNotes(){
+		return new ArrayList<NoteDto>(service.getNotes());
 	}
 	
-	//@RequestMapping(path = "note/", method = {RequestMethod.POST})
-	//@ResponseStatus(code = HttpStatus.CREATED)
+	@RequestMapping(path = "note/", method = {RequestMethod.POST})
+	@ResponseStatus(code = HttpStatus.CREATED)
 	public NoteDto createNote(@RequestBody NoteDto note){
 		return service.createNote(note);
 	}
